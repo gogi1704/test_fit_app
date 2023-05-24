@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="4dp"
+    android:elevation="24dp"
+    app:cardCornerRadius="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_startTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12:12"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/text_finishTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:paddingStart="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_startTraining"
+            tools:text="15:12"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/text_training_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/text_startTraining"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_startTraining"
+            tools:text="1ч. 20 мин" />
+
+        <TextView
+            android:id="@+id/text_locationTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/text_finishTraining"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_finishTraining"
+            tools:text="Большой зал" />
+
+
+        <ImageView
+            android:id="@+id/image_location"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintBottom_toBottomOf="@id/text_locationTraining"
+            app:layout_constraintEnd_toStartOf="@id/text_locationTraining"
+            app:layout_constraintTop_toTopOf="@id/text_locationTraining"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/text_typeTraining"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/text_startTraining"
+            app:layout_constraintEnd_toStartOf="@+id/text_training_size"
+            app:layout_constraintStart_toEndOf="@id/text_startTraining"
+            app:layout_constraintTop_toTopOf="@+id/text_startTraining"
+            tools:text="Персональная тренировка" />
+
+        <ImageView
+            android:id="@+id/image_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:layout_constraintBottom_toBottomOf="@id/text_finishTraining"
+            app:layout_constraintStart_toEndOf="@id/text_finishTraining"
+            app:layout_constraintTop_toTopOf="@+id/text_finishTraining"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/text_finishTraining"
+            app:layout_constraintEnd_toStartOf="@+id/image_location"
+            app:layout_constraintStart_toEndOf="@id/image_person"
+            app:layout_constraintTop_toTopOf="@id/text_finishTraining"
+            tools:text="Иван Степанович" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_square_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_startTraining"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

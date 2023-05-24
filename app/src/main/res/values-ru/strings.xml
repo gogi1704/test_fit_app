@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Тест Фит</string>
+    <string name="schedule">Расписание</string>
+    <string name="training">Занятия</string>
+    <string name="application">Заявки</string>
+    <string name="add">Добавить</string>
+    <string name="chat">Чат</string>
+    <string name="more">Еще</string>
+</resources>
