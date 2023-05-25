@@ -4,7 +4,7 @@ data class LessonModel(
     val name:String ,
     val description:String ,
     val place:String ,
-    val coachId:String ,
+    val coach_id:String ,
     val startTime:String ,
     val endTime:String ,
     val date:String ,
@@ -17,5 +17,6 @@ data class LessonModel(
     val tab:String ,
     val color:String ,
     val tabId:Long ,
+    val trainerName:String
 
 )

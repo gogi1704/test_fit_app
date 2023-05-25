@@ -17,19 +17,24 @@ class LessonsViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
     private var lessonsData = emptyList<LessonModel>()
-    set(value) {
-        field = value
-        _lessonsLiveData.value = value
-    }
+        set(value) {
+            field = value
+            _lessonsLiveData.value = value
+        }
 
     private val _lessonsLiveData = MutableLiveData(lessonsData)
     val lessonsLiveData: MutableLiveData<List<LessonModel>>
-    get() = _lessonsLiveData
-
+        get() = _lessonsLiveData
 
     private fun getAllLessons() {
         viewModelScope.launch {
-             lessonsData = repository.getAll().lessons
+            val data = repository.getAll()
+            lessonsData = data.lessons.map {
+                val trainer = data.trainers.filter { trainer ->
+                    it.coach_id.isNotEmpty() && it.coach_id == trainer.id
+                }
+                it.copy(trainerName = if (trainer.isNotEmpty()) trainer[0].name else "")
+            }
         }
     }
 

@@ -25,10 +25,11 @@ class LessonsViewHolder(private val binding: ItemLayoutBinding) :
 
     fun bind(item: LessonModel) {
         with(binding) {
+            textLocationTraining.isSelected = true
             textStartTraining.text = item.startTime
             textFinishTraining.text = item.endTime
             textTypeTraining.text = item.name
-            textName.text = item.coachId
+            textName.text = item.trainerName
             textLocationTraining.text = item.place
             colorLine.setColorFilter(Color.parseColor(item.color))
         }
