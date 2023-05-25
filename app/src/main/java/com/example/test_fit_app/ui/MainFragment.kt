@@ -1,4 +1,4 @@
-package com.example.test_fit_app
+package com.example.test_fit_app.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
