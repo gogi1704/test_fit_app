@@ -38,6 +38,7 @@ android {
 
 apply plugin: 'com.android.application'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     def nav_version = "2.5.3"

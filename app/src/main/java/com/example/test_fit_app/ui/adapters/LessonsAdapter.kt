@@ -27,7 +27,7 @@ class LessonsViewHolder(private val binding: ItemLayoutBinding) :
             textStartTraining.text = item.startTime
             textFinishTraining.text = item.endTime
             textTypeTraining.text = item.name
-            textName.text = item.coach_id
+            textName.text = item.coachId
             textLocationTraining.text = item.place
         }
     }

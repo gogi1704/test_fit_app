@@ -1,6 +1,7 @@
 package com.example.test_fit_app.api.di
 
 import com.example.test_fit_app.BuildConfig
+import com.example.test_fit_app.api.LessonsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +10,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -32,16 +34,20 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideOkhttp(loggingInterceptor: HttpLoggingInterceptor):OkHttpClient = OkHttpClient.Builder()
-        .connectTimeout(30 , TimeUnit.MILLISECONDS)
+        .connectTimeout(30 , TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
         .build()
 
     @Singleton
     @Provides
-
     fun provideRetrofit(okHttpClient: OkHttpClient):Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .baseUrl(BASE_URL)
         .build()
+
+    @Singleton
+    @Provides
+    fun provideLessonsApi(retrofit: Retrofit):LessonsApi = retrofit.create()
+
 }
