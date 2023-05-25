@@ -9,6 +9,7 @@ import com.example.test_fit_app.data.model.LessonModel
 import com.example.test_fit_app.databinding.ItemLayoutBinding
 
 class LessonsAdapter() : ListAdapter<LessonModel, LessonsViewHolder>(LessonsDiffUtil()) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonsViewHolder {
         val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LessonsViewHolder(binding)
