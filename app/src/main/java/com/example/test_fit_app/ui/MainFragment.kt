@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.test_fit_app.databinding.FragmentMainBinding
+import com.example.test_fit_app.ui.adapters.LessonsAdapter
 import com.example.test_fit_app.viewModel.LessonsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,14 +15,20 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: LessonsViewModel by activityViewModels()
+    private val adapter = LessonsAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
+        with(binding){
+            recycler.adapter = adapter
+        }
 
-        viewModel.getAllLessons()
+        viewModel.lessonsLiveData.observe(viewLifecycleOwner){
+            adapter.submitList(it)
+        }
 
 
 
