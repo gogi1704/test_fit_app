@@ -22,12 +22,20 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
-        with(binding){
+        with(binding) {
             recycler.adapter = adapter
         }
 
-        viewModel.lessonsLiveData.observe(viewLifecycleOwner){
+        viewModel.lessonsLiveData.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+        }
+
+        viewModel.isLoadingLiveData.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else binding.progressBar.visibility = View.GONE
+
+
         }
 
 

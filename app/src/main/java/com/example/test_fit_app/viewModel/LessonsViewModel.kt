@@ -22,18 +22,30 @@ class LessonsViewModel @Inject constructor(
     private var lessonsData = emptyList<LessonModel>()
         set(value) {
             field = value
+            isLoading = false
             _lessonsLiveData.value = separator(value)
 
         }
-
 
 
     private val _lessonsLiveData = MutableLiveData<List<ListItems>>()
     val lessonsLiveData: MutableLiveData<List<ListItems>>
         get() = _lessonsLiveData
 
+    private var isLoading = false
+        set(value) {
+            field = value
+            isLoadingLiveData.value = value
+        }
+
+
+
+    val isLoadingLiveData = MutableLiveData(isLoading)
+
+
     private fun getAllLessons() {
         viewModelScope.launch {
+            isLoading = true
             val data = repository.getAll()
             lessonsData = data.lessons.map {
                 val trainer = data.trainers.filter { trainer ->

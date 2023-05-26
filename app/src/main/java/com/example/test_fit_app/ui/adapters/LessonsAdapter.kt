@@ -15,14 +15,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.Locale
 
-@RequiresApi(Build.VERSION_CODES.N)
 
 class LessonsAdapter : ListAdapter<ListItems, RecyclerView.ViewHolder>(LessonsDiffUtil()) {
 
     private val dateNum = 0
     private val lessonNum = 1
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
