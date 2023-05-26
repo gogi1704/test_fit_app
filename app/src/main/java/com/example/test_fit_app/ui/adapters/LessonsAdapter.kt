@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test_fit_app.data.model.*
 import com.example.test_fit_app.databinding.DateItemLayoutBinding
-import com.example.test_fit_app.databinding.ItemLayoutBinding
+import com.example.test_fit_app.databinding.LessonItemLayoutBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
@@ -27,7 +27,7 @@ class LessonsAdapter : ListAdapter<ListItems, RecyclerView.ViewHolder>(LessonsDi
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             dateNum -> DateViewHolder(DateItemLayoutBinding.inflate(layoutInflater, parent, false))
-            lessonNum -> LessonsViewHolder(ItemLayoutBinding.inflate(layoutInflater, parent, false))
+            lessonNum -> LessonsViewHolder(LessonItemLayoutBinding.inflate(layoutInflater, parent, false))
             else -> throw Error()
         }
 
@@ -52,7 +52,7 @@ class LessonsAdapter : ListAdapter<ListItems, RecyclerView.ViewHolder>(LessonsDi
 
 }
 
-class LessonsViewHolder(private val binding: ItemLayoutBinding) :
+class LessonsViewHolder(private val binding: LessonItemLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: LessonItem) {

@@ -25,8 +25,8 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="12:12"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RtlSymmetry"
+            tools:text="12:12" />
 
         <TextView
             android:id="@+id/text_finishTraining"
@@ -40,8 +40,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_startTraining"
-            tools:text="15:12"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RtlSymmetry"
+            tools:text="15:12" />
 
         <TextView
             android:id="@+id/text_training_size"
@@ -58,17 +58,19 @@
             android:id="@+id/text_locationTraining"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="48dp"
             android:layout_marginEnd="12dp"
             android:ellipsize="marquee"
             android:gravity="end"
             android:singleLine="true"
             android:textColor="@color/black"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/text_finishTraining"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/text_name"
+            app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toTopOf="@+id/text_finishTraining"
+            tools:ignore="SmallSp"
             tools:text="Большой зал" />
 
 
@@ -109,15 +111,18 @@
 
         <TextView
             android:id="@+id/text_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:singleLine="true"
             android:textColor="@color/black"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@id/text_finishTraining"
-            app:layout_constraintEnd_toStartOf="@+id/image_location"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/image_person"
             app:layout_constraintTop_toTopOf="@id/text_finishTraining"
+            tools:ignore="SmallSp"
             tools:text="Иван Степанович" />
 
 
@@ -130,6 +135,14 @@
             app:layout_constraintEnd_toStartOf="@+id/text_startTraining"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
