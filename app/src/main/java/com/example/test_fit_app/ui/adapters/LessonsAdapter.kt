@@ -1,19 +1,28 @@
 package com.example.test_fit_app.ui.adapters
 
 import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test_fit_app.data.model.*
 import com.example.test_fit_app.databinding.DateItemLayoutBinding
 import com.example.test_fit_app.databinding.ItemLayoutBinding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.TextStyle
+import java.util.Locale
 
-class LessonsAdapter() : ListAdapter<ListItems, RecyclerView.ViewHolder>(LessonsDiffUtil()) {
+@RequiresApi(Build.VERSION_CODES.N)
+
+class LessonsAdapter : ListAdapter<ListItems, RecyclerView.ViewHolder>(LessonsDiffUtil()) {
 
     private val dateNum = 0
     private val lessonNum = 1
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
@@ -22,10 +31,9 @@ class LessonsAdapter() : ListAdapter<ListItems, RecyclerView.ViewHolder>(Lessons
             else -> throw Error()
         }
 
-//        val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return LessonsViewHolder(binding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is LessonsViewHolder -> holder.bind(getItem(position) as LessonItem)
@@ -63,10 +71,18 @@ class LessonsViewHolder(private val binding: ItemLayoutBinding) :
 
 class DateViewHolder(private val binding: DateItemLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
-
+    @RequiresApi(Build.VERSION_CODES.O)
     fun bind(item: DateItem) {
+        val dateParse = LocalDate.parse(item.date, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+        val day = "${
+            dateParse.dayOfWeek.getDisplayName(
+                TextStyle.FULL,
+                Locale("ru", "RU")
+            )
+        } , ${dateParse.dayOfMonth} ${dateParse.month.getDisplayName(TextStyle.FULL ,Locale("ru", "RU") )}"
+
         with(binding) {
-            date.text = item.date
+            date.text = day
         }
     }
 
