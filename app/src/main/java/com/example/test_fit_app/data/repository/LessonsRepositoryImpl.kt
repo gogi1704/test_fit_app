@@ -5,7 +5,17 @@ import com.example.test_fit_app.data.model.DataModel
 import javax.inject.Inject
 
 
-class LessonsRepositoryImpl @Inject constructor(private val api: LessonsApi) : LessonsRepository {
+class LessonsRepositoryImpl @Inject constructor(
+    private val api: LessonsApi,
+   // private val dao: LessonsDao
+) : LessonsRepository {
+
+
+//    val pagingData: PagingData<LessonEntity> = dao.getPagingData().insertSeparators(
+//        generator = { before, after ->
+//            if (before?.date != after?.date) null else after
+//        }
+//    )
 
 
     override suspend fun getAll(): DataModel {

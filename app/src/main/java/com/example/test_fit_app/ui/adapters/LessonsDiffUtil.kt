@@ -1,14 +1,14 @@
 package com.example.test_fit_app.ui.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.test_fit_app.data.model.LessonModel
+import com.example.test_fit_app.data.model.ListItems
 
-class LessonsDiffUtil: DiffUtil.ItemCallback<LessonModel>() {
-    override fun areItemsTheSame(oldItem: LessonModel, newItem: LessonModel): Boolean {
+class LessonsDiffUtil: DiffUtil.ItemCallback<ListItems>() {
+    override fun areItemsTheSame(oldItem: ListItems, newItem: ListItems): Boolean {
       return  oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: LessonModel, newItem: LessonModel): Boolean {
+    override fun areContentsTheSame(oldItem: ListItems, newItem: ListItems): Boolean {
         return  oldItem == newItem
     }
 }
